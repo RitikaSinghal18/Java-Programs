@@ -1,0 +1,57 @@
+//without varags
+
+class NoVararg {
+
+    public int sumNumber(int a, int b){
+        return a+b;
+    }
+
+    public int sumNumber(int a, int b, int c){
+        return a+b+c;
+    }
+
+    public static void main( String[] args ) {
+        NoVararg obj = new NoVararg();
+        System.out.println(obj.sumNumber(1, 2));
+        System.out.println(obj.sumNumber(1, 2, 3));
+    }
+}
+
+//Output
+3
+6
+
+//with varags
+
+class VarargExample {
+
+    public int sumNumber(int ... args){
+        System.out.println("argument length: " + args.length);
+        int sum = 0;
+        for(int x: args){
+            sum += x;
+        }
+        return sum;
+    }
+
+    public static void main( String[] args ) {
+        VarargExample ex = new VarargExample();
+
+        int sum2 = ex.sumNumber(2, 4);
+        System.out.println("sum2 = " + sum2);
+
+        int sum3 = ex.sumNumber(1, 3, 5);
+        System.out.println("sum3 = " + sum3);
+
+        int sum4 = ex.sumNumber(1, 3, 5, 7);
+        System.out.println("sum4 = " + sum4);
+    }
+}
+
+//Output
+argument length: 2
+sum2 = 6
+argument length: 3
+sum3 = 9
+argument length: 4
+sum4 = 16
